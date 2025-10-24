@@ -27,19 +27,6 @@ Laravel has the most extensive and thorough [documentation](https://laravel.com/
 
 You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
 - **[Cyber-Duck](https://cyber-duck.co.uk)**
 - **[Many](https://www.many.co.uk)**
 - **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
@@ -59,8 +46,22 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 ## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
 ## License
+Below is a representative screenshot of the application dashboard (stored in-repo):
+
+![A2O Reports dashboard](docs/images/a2o-report.png)
+
+Main features (brief)
+
+- Interactive date + market filters (multi-select) to query reports.
+- Role-aware market access: `market_ownership = all` shows all markets; otherwise users see assigned markets only.
+- Job Bookings time-series chart (daily bookings per market) with client-side rendering.
+- Conversion Funnel visualization (counts + percentages) with CSV export support.
+- Backend aggregations by date and market for efficient querying; frontend uses Vue 3 + Pinia + Highcharts.
+
+Below are links to additional screenshots illustrating the main reports UI and conversion funnel used in this project (externally hosted):
+
+- Reports overview (time-series job bookings): https://prnt.sc/wpO6SBnH38qs
+- Conversion funnel (multi-step funnel view): https://prnt.sc/pMGTlxY9Oi0g
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
