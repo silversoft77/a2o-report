@@ -21,6 +21,32 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
+## Application overview
+
+Below are links to the screenshots illustrating the main reports UI and conversion funnel used in this project. The images are hosted externally — click the links to view them.
+
+- Reports overview (time-series job bookings): https://prnt.sc/wpO6SBnH38qs
+
+- Conversion funnel (multi-step funnel view): https://prnt.sc/pMGTlxY9Oi0g
+
+Summary
+
+- Features:
+	- Interactive date-range and market filters (multi-select) used to query reports from the backend.
+	- Job Bookings chart: time-series areaspline showing daily bookings per market across the selected period.
+	- Conversion Funnel: multi-step conversion visualization (counts + percentages) with CSV export.
+	- Role-aware market access: users whose `market_ownership` is `all` see all markets; users with a comma-separated list see only those markets.
+	- CSV export endpoints for report data to support offline analysis.
+
+- Performance (short summary):
+	- Backend: aggregate queries group by market and date, optimized with date-range filtering. Query cost depends on result set size; limiting markets and date windows keeps responses fast.
+	- Frontend: charts are rendered client-side (Highcharts) and handle moderate series sizes (tens of markets, multi-week ranges) smoothly; large ranges or many markets may require server-side aggregation or pagination to remain snappy.
+
+Notes
+
+- Screenshots are linked externally (prnt.sc). If you prefer the images hosted in-repo, upload them to `docs/images/` and update the paths above (or tell me and I will add them for you).
+
+
 ## Learning Laravel
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
