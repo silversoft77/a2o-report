@@ -35,6 +35,15 @@ const toggleMarket = (id: string | undefined) => {
 const handleApply = async () => {
     try {
         await filterStore.applyFilters()
+        try {
+            const payload = { markets: Array.isArray(selectedMarketIds) ? [...selectedMarketIds] : [] }
+            if (selectedMarketIds && selectedMarketIds.value) {
+                payload.markets = [...selectedMarketIds.value]
+            }
+            window.dispatchEvent(new CustomEvent('filters:applied', { detail: payload }))
+        } catch (e) {
+            console.error('Failed to dispatch filters:applied', e)
+        }
     } catch (error) {
     }
 }

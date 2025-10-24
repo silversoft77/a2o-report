@@ -7,6 +7,7 @@ import type { Market } from './type'
 export const useFilterStore = defineStore('filter', () => {
     const selectedMarketIds = ref<string[]>([])
     const availableMarkets = ref<Market[]>([])
+    const appliedKey = ref<number>(0)
 
     const selectedMarkets = computed(() =>
         selectedMarketIds.value.map(id =>
@@ -27,7 +28,12 @@ export const useFilterStore = defineStore('filter', () => {
 
             const response = await axios.get(url)
             availableMarkets.value = response.data || []
-            selectedMarketIds.value = []
+
+            if (availableMarkets.value.length > 0) {
+                selectedMarketIds.value = [availableMarkets.value[0]!.id]
+            } else {
+                selectedMarketIds.value = []
+            }
         } catch (error) {
             console.error('Error fetching markets:', error)
         }
@@ -43,6 +49,7 @@ export const useFilterStore = defineStore('filter', () => {
             }
 
             const response = await axios.post(`${API_CONFIG.ENDPOINTS.APPLY_FILTERS}`, filters)
+            appliedKey.value++
             return response.data
         } catch (error) {
             console.error('Error applying filters:', error)
@@ -56,6 +63,7 @@ export const useFilterStore = defineStore('filter', () => {
         selectedMarketIds,
         selectedMarkets,
         availableMarkets,
+        appliedKey,
         fromDate,
         toDate,
         isLoading,

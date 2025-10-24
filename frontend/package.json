@@ -15,12 +15,14 @@
     "@vuepic/vue-datepicker": "^11.0.3",
     "apexcharts": "^5.3.5",
     "axios": "^1.12.2",
+    "highcharts": "^12.4.0",
     "pinia": "^3.0.3",
     "vue": "^3.5.22",
     "vue-router": "^4.6.3",
     "vue3-apexcharts": "^1.10.0"
   },
   "devDependencies": {
+    "@types/highcharts": "^5.0.44",
     "@types/node": "^24.6.0",
     "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",

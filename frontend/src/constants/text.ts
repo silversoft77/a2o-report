@@ -7,6 +7,8 @@ export const BUTTONS = {
     SIGN_OUT: 'Sign Out',
     APPLY_FILTERS: 'Apply Filters',
     APPLYING: 'Applying...'
+    ,
+    EXPORT_CSV: 'Export CSV'
 }
 
 export const LABELS = {
@@ -36,5 +38,6 @@ export const TITLES = {
 export const MESSAGES = {
     REPORTS_PLACEHOLDER: 'Your reports and analytics will be displayed here',
     RECENT_REPORTS: 'Recent Reports',
-    LOGIN_ERROR: 'Failed to login'
+    LOGIN_ERROR: 'Failed to login',
+    LOADING: 'Loading...'
 }
