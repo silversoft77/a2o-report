@@ -4,7 +4,9 @@ export const HEADERS = {
 
 export const BUTTONS = {
     SIGN_IN: 'Sign In',
-    SIGN_OUT: 'Sign Out'
+    SIGN_OUT: 'Sign Out',
+    APPLY_FILTERS: 'Apply Filters',
+    APPLYING: 'Applying...'
 }
 
 export const LABELS = {
@@ -12,14 +14,23 @@ export const LABELS = {
     PASSWORD: 'Password'
 }
 
-export const TITLES = {
-    SIGN_IN: 'Sign in to your account',
-    REPORTS_OVERVIEW: 'Reports Overview'
+export const UI_LABELS = {
+    FROM_DATE: 'From Date',
+    TO_DATE: 'To Date',
+    MARKETS: 'Markets'
 }
 
 export const PLACEHOLDERS = {
+    SELECT_MARKETS: 'Select markets',
+    START_DATE: 'Select start date',
+    END_DATE: 'Select end date',
     EMAIL: 'Email address',
     PASSWORD: 'Password'
+}
+
+export const TITLES = {
+    SIGN_IN: 'Sign in to your account',
+    REPORTS_OVERVIEW: 'Reports Overview'
 }
 
 export const MESSAGES = {

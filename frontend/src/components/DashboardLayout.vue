@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
 import { HEADERS, BUTTONS } from '../constants/text'
+import FilterToolbar from './FilterToolbar.vue'
 
 const router = useRouter()
 const user = ref({ name: '' })
@@ -32,7 +33,7 @@ const signOut = async () => {
 <template>
     <div class="min-h-screen bg-gray-900">
         <nav class="bg-gray-800 border-b border-gray-700">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto">
                 <div class="flex items-center justify-between h-16">
                     <div class="flex items-center">
                         <div class="text-xl font-bold text-white">
@@ -50,7 +51,9 @@ const signOut = async () => {
             </div>
         </nav>
 
-        <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <FilterToolbar />
+
+        <main class="max-w-7xl mx-auto py-6 ">
             <slot></slot>
         </main>
     </div>

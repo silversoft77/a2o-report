@@ -1,0 +1,60 @@
+.multiselect-dark {
+    --ms-bg: #374151;
+    --ms-border: #4B5563;
+    --ms-dropdown-bg: #1F2937;
+    --ms-option-bg-selected: #059669;
+    --ms-option-bg-selected-pointed: #047857;
+    --ms-option-bg-pointed: #374151;
+    --ms-option-color-pointed: #F3F4F6;
+    --ms-tag-bg: #059669;
+    --ms-tag-color: #F3F4F6;
+    --ms-tag-font-size: 0.875rem;
+    --ms-tag-font-weight: 500;
+    --ms-tag-radius: 0.375rem;
+}
+
+.multiselect-dark .multiselect-tag {
+    background: var(--ms-tag-bg);
+    color: var(--ms-tag-color);
+    font-size: var(--ms-tag-font-size);
+    font-weight: var(--ms-tag-font-weight);
+    border-radius: var(--ms-tag-radius);
+    margin: 2px;
+    padding: 4px 8px;
+}
+
+.multiselect-dark .multiselect-tag-remove {
+    margin-left: 4px;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.75;
+    cursor: pointer;
+}
+
+.multiselect-dark .multiselect-tag-remove:hover {
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.multiselect-dark .multiselect-tag-remove:after {
+    content: "×";
+    font-size: 14px;
+    line-height: 1;
+}
+
+.datepicker-dark {
+    --vdp-bg-color: #374151;
+    --vdp-text-color: #F3F4F6;
+    --vdp-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --vdp-border-color: #4B5563;
+    --vdp-elem-color: #F3F4F6;
+    --vdp-disabled-color: #6B7280;
+    --vdp-hover-color: #059669;
+    --vdp-hover-bg-color: rgba(5, 150, 105, 0.1);
+    --vdp-selected-color: #F3F4F6;
+    --vdp-selected-bg-color: #059669;
+}

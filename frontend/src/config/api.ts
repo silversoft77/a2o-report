@@ -3,6 +3,8 @@ export const API_CONFIG = {
     ENDPOINTS: {
         USER: '/api/user',
         LOGIN: '/api/login',
-        CSRF: '/sanctum/csrf-cookie'
+        CSRF: '/sanctum/csrf-cookie',
+        USER_MARKETS: '/api/user/markets',
+        APPLY_FILTERS: '/api/reports/filter'
     }
 }
