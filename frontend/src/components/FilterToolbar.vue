@@ -6,7 +6,7 @@ import Datepicker from '@vuepic/vue-datepicker'
 import Multiselect from '@vueform/multiselect'
 import { useFilterStore } from '@/stores/filterStore'
 import { API_CONFIG } from '@/config/api'
-import { UI_LABELS, BUTTONS, PLACEHOLDERS } from '@/constants/text'
+import { UI_LABELS, BUTTONS, PLACEHOLDERS, MESSAGES } from '@/constants/text'
 
 const filterStore = useFilterStore()
 const { selectedMarketIds, availableMarkets, fromDate, toDate, isLoading } = storeToRefs(filterStore)
@@ -42,7 +42,7 @@ const handleApply = async () => {
             }
             window.dispatchEvent(new CustomEvent('filters:applied', { detail: payload }))
         } catch (e) {
-            console.error('Failed to dispatch filters:applied', e)
+            console.error(MESSAGES.ERROR_DISPATCH_FILTERS_APPLIED, e)
         }
     } catch (error) {
     }

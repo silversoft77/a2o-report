@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import axios from 'axios'
+import { MESSAGES } from '@/constants/text'
 import { API_CONFIG } from '@/config/api'
 import type { Market } from './type'
 
@@ -35,7 +36,7 @@ export const useFilterStore = defineStore('filter', () => {
                 selectedMarketIds.value = []
             }
         } catch (error) {
-            console.error('Error fetching markets:', error)
+            console.error(MESSAGES.ERROR_FETCH_MARKETS, error)
         }
     }
 
@@ -52,7 +53,7 @@ export const useFilterStore = defineStore('filter', () => {
             appliedKey.value++
             return response.data
         } catch (error) {
-            console.error('Error applying filters:', error)
+            console.error(MESSAGES.ERROR_APPLY_FILTERS, error)
             throw error
         } finally {
             isLoading.value = false

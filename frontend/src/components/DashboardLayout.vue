@@ -2,7 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from 'axios'
-import { HEADERS, BUTTONS } from '../constants/text'
+import { HEADERS, BUTTONS, MESSAGES } from '../constants/text'
 import FilterToolbar from './FilterToolbar.vue'
 
 const router = useRouter()
@@ -13,7 +13,7 @@ onMounted(async () => {
         const response = await axios.get('/api/user')
         user.value = response.data
     } catch (error) {
-        console.error('Error fetching user:', error)
+        console.error(MESSAGES.ERROR_FETCH_USER, error)
         router.push('/login')
     }
 })
@@ -25,7 +25,7 @@ const signOut = async () => {
         delete axios.defaults.headers.common['Authorization']
         router.push('/login')
     } catch (error) {
-        console.error('Logout error:', error)
+        console.error(MESSAGES.LOGOUT_ERROR, error)
     }
 }
 </script>

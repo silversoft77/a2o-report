@@ -27,7 +27,7 @@ const login = async () => {
 
         router.push('/reports')
     } catch (e: any) {
-        console.error('Login error:', e.response?.data || e)
+        console.error(MESSAGES.LOGIN_ERROR, e.response?.data || e)
         error.value = e.response?.data?.message || MESSAGES.LOGIN_ERROR
     }
 }

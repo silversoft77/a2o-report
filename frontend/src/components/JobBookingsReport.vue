@@ -11,7 +11,7 @@ import { BUTTONS, MESSAGES } from '@/constants/text'
 import type { JobBookingsData, JobBookingsSeries } from '@/types/chart'
 
 const filterStore = useFilterStore()
-const { selectedMarketIds, fromDate, toDate, appliedKey } = storeToRefs(filterStore)
+const { selectedMarketIds, fromDate, toDate } = storeToRefs(filterStore)
 
 const chartContainer = ref<HTMLElement | null>(null)
 let Highcharts: any = null
@@ -39,7 +39,7 @@ const fetchData = async (markets?: string[]): Promise<void> => {
         const resp = await axios.get<JobBookingsData>('/api/reports/job-bookings', { params })
         renderChart(resp.data)
     } catch (err) {
-        console.error('Error fetching job bookings:', err)
+        console.error(MESSAGES.ERROR_FETCH_JOB_BOOKINGS, err)
     } finally {
         loading.value = false
     }
@@ -70,7 +70,7 @@ const renderChart = async (data: JobBookingsData): Promise<void> => {
         try {
             chart.destroy()
         } catch (e) {
-            console.error('Failed to dispatch filters:applied', e)
+            console.error(MESSAGES.ERROR_DISPATCH_FILTERS_APPLIED, e)
         }
         chart = null
     }
@@ -115,10 +115,6 @@ onUnmounted(() => {
     }
 })
 
-watch(appliedKey, () => {
-    fetchData()
-})
-
 watch(selectedMarketIds, (val) => {
     if (!initialized.value && Array.isArray(val) && val.length > 0) {
         fetchData()
@@ -133,11 +129,16 @@ watch(selectedMarketIds, (val) => {
             <div class="flex items-center gap-2 justify-end">
                 <div class="flex items-center gap-2">
                     <button @click="downloadCSV"
-                        class="px-3 py-1 bg-gray-700 rounded text-sm text-white hover:bg-gray-600">{{ BUTTONS.EXPORT_CSV
-                        }}</button>
+                        class="px-3 py-1.5 bg-gray-700 rounded text-sm text-white hover:bg-gray-600 transition-colors">{{
+                            BUTTONS.EXPORT_CSV }}</button>
                 </div>
             </div>
-            <div ref="chartContainer" />
+            <div class="relative">
+                <div ref="chartContainer" v-show="!loading" />
+                <div v-if="loading" class="absolute inset-0 flex items-center justify-center bg-gray-800/60 rounded">
+                    <div class="text-sm text-gray-300">{{ MESSAGES.LOADING }}</div>
+                </div>
+            </div>
         </div>
         <div v-if="loading" class="text-sm text-gray-400">{{ MESSAGES.LOADING }}</div>
     </div>

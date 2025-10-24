@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import axios from 'axios'
 import DashboardLayout from '../components/DashboardLayout.vue'
 import JobBookingsReport from '@/components/JobBookingsReport.vue'
+import ConversionFunnel from '@/components/ConversionFunnel.vue'
 import { TITLES } from '@/constants/text'
 
 const router = useRouter()
@@ -25,6 +26,7 @@ onMounted(async () => {
                 <div class="grid gap-4">
                     <div class="grid grid-cols-1 gap-4">
                         <JobBookingsReport />
+                        <ConversionFunnel />
                     </div>
                 </div>
             </div>
