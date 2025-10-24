@@ -36,7 +36,9 @@ const fetchData = async (markets?: string[]): Promise<void> => {
             params.markets = useMarkets.join(',')
         }
 
+        console.log('Fetching job bookings data with params:', params)
         const resp = await axios.get<JobBookingsData>('/api/reports/job-bookings', { params })
+        console.log('Job bookings response:', resp.data)
         renderChart(resp.data)
     } catch (err) {
         console.error(MESSAGES.ERROR_FETCH_JOB_BOOKINGS, err)

@@ -17,20 +17,6 @@ const selectedMarketNames = computed(() =>
         .filter(Boolean) || []
 )
 
-const toggleMarket = (id: string | undefined) => {
-    if (!id) return
-    if (!Array.isArray(selectedMarketIds.value)) {
-        selectedMarketIds.value = [id]
-        return
-    }
-
-    const idx = selectedMarketIds.value.indexOf(id)
-    if (idx === -1) {
-        selectedMarketIds.value = [...selectedMarketIds.value, id]
-    } else {
-        selectedMarketIds.value = selectedMarketIds.value.filter(i => i !== id)
-    }
-}
 
 const handleApply = async () => {
     try {
@@ -84,10 +70,7 @@ onMounted(async () => {
                             </div>
                         </template>
                         <template #option="{ option }">
-                            <div class="flex items-center gap-2 text-white">
-                                <input type="checkbox"
-                                    :checked="Array.isArray(selectedMarketIds) && selectedMarketIds.includes(option.id)"
-                                    @click.stop.prevent="toggleMarket(option.id)" class="form-checkbox h-4 w-4" />
+                            <div class="text-white cursor-pointer">
                                 {{ option.name }}
                             </div>
                         </template>
