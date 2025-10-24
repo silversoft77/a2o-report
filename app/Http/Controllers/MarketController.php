@@ -22,6 +22,13 @@ class MarketController extends Controller
         }
 
         if (!empty($user->market_ownership)) {
+            if ($user->market_ownership === 'all') {
+                $markets = Market::select('id', 'name')
+                    ->orderBy('name')
+                    ->get();
+                return response()->json($markets);
+            }
+
             $ids = array_filter(array_map('trim', explode(',', $user->market_ownership)));
             if (count($ids) === 0) {
                 return response()->json([]);
@@ -29,6 +36,7 @@ class MarketController extends Controller
 
             $markets = Market::whereIn('id', $ids)
                 ->select('id', 'name')
+                ->orderBy('name')
                 ->get();
 
             return response()->json($markets);
@@ -36,6 +44,7 @@ class MarketController extends Controller
 
         $markets = $user->markets()
             ->select('id', 'name')
+            ->orderBy('name')
             ->get();
 
         return response()->json($markets);

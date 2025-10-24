@@ -31,7 +31,11 @@ class ReportController extends Controller
 
         $allowed = null;
         if ($user && !empty($user->market_ownership)) {
-            $allowed = array_filter(array_map('trim', explode(',', $user->market_ownership)));
+            if ($user->market_ownership === 'all') {
+                $allowed = null;
+            } else {
+                $allowed = array_filter(array_map('trim', explode(',', $user->market_ownership)));
+            }
         } elseif ($user) {
             $allowed = $user->markets()->pluck('id')->map(fn($v) => (string) $v)->toArray();
         }
